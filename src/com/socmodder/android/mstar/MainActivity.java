@@ -31,6 +31,16 @@ public class MainActivity extends Activity implements ArchitectUrlListener, Loca
     private List<PoiBean> poiBeanList;
 
     @Override
+    public void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+
+        this.architectView = (ArchitectView) this.findViewById(R.id.architectView);
+
+        architectView.onCreate(key);
+    }
+
+    @Override
     public boolean urlWasInvoked(String s) {
         return false;
     }
