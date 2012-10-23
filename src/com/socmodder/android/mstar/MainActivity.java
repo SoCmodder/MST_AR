@@ -1,6 +1,7 @@
 package com.socmodder.android.mstar;
 
 import android.app.*;
+import android.content.Context;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -15,7 +16,10 @@ import com.j256.ormlite.db.*;
 import com.j256.ormlite.support.*;
 import com.wikitude.architect.ArchitectUrlListener;
 import com.wikitude.architect.ArchitectView;
+import org.json.JSONArray;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends Activity implements ArchitectUrlListener, LocationListener
@@ -33,11 +37,42 @@ public class MainActivity extends Activity implements ArchitectUrlListener, Loca
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+
+        //Method for checking device requirements
+        if(!ArchitectView.isDeviceSupported(this)){
+            Toast.makeText(this, "requirements not fulfilled", Toast.LENGTH_LONG).show();
+            this.finish();
+            return;
+        }
+
         setContentView(R.layout.main);
 
         this.architectView = (ArchitectView) this.findViewById(R.id.architectView);
 
         architectView.onCreate(key);
+
+        //inform the architect framework about the user's location
+        locManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+        locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+    }
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState){
+        super.onPostCreate(savedInstanceState);
+
+        //IMPORTANT: creates ARchitect core modules
+        if(this.architectView != null){
+            this.architectView.onPostCreate();
+        }
+
+        //register this activity as handler of "architectsdk://" urls
+        this.architectView.registerUrlListener(this);
+
+        try{
+            loadSampleWorld();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -62,6 +97,14 @@ public class MainActivity extends Activity implements ArchitectUrlListener, Loca
 
     @Override
     public void onProviderDisabled(String s) {
+
+    }
+
+    public void loadSampleWorld() throws IOException{
+        this.architectView.load("world.html");
+
+        JSONArray array = new JSONArray();
+        poiBeanList = new ArrayList<PoiBean>();
 
     }
 }
