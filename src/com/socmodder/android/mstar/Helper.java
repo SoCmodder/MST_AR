@@ -21,6 +21,7 @@ public class Helper extends OrmLiteSqliteOpenHelper
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 	}
 
+    @Override
 	public void onCreate(SQLiteDatabase db, ConnectionSource cs){
 		// TODO: Implement this method
         try {
@@ -37,6 +38,7 @@ public class Helper extends OrmLiteSqliteOpenHelper
 
     }
 
+    @Override
 	public void onUpgrade(SQLiteDatabase p1, ConnectionSource p2, int p3, int p4)
 	{
 		// TODO: Implement this method
@@ -51,5 +53,20 @@ public class Helper extends OrmLiteSqliteOpenHelper
     public void close(){
         super.close();
         runtimeDao = null;
+    }
+
+    public void createBuildings(){
+        RuntimeExceptionDao<Building, Integer> bDao = getRuntimeExceptionDao(Building.class);
+        Building b = new Building("Computer Science", -91.77383683047405, 37.95561634965694, 0);
+        bDao.create(b);
+
+        b = new Building("Library", -91.77332205172004, 37.95543497056854, 0);
+        bDao.create(b);
+
+        b = new Building("HSS", -91.77409015632608, 37.9553411304625, 0);
+        bDao.create(b);
+
+        b = new Building("Engineering Managment", -91.77479519078301, 37.95511551589411, 0);
+        bDao.create(b);
     }
 }
