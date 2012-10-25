@@ -41,7 +41,6 @@ public class Helper extends OrmLiteSqliteOpenHelper
     @Override
 	public void onUpgrade(SQLiteDatabase p1, ConnectionSource p2, int p3, int p4)
 	{
-		// TODO: Implement this method
         try{
             TableUtils.dropTable(connectionSource, Building.class, true);
         }catch (SQLException e){
@@ -53,6 +52,17 @@ public class Helper extends OrmLiteSqliteOpenHelper
     public void close(){
         super.close();
         runtimeDao = null;
+    }
+
+    /**
+     * Returns the Database Access Object (DAO) for our Building class. It will create it, or just give the cached
+     * value.
+     */
+    public Dao<Building, Integer> getDao() throws SQLException{
+        if(buildingDao == null){
+            buildingDao = getDao(Building.class);
+        }
+        return buildingDao;
     }
 
     public void createBuildings(){
@@ -72,7 +82,7 @@ public class Helper extends OrmLiteSqliteOpenHelper
         b = new Building("Shrenk Hall", 0, 0, 0);
         bDao.create(b);
 
-        b = new Building("Havener", 0, 0, 0);
+        b = new Building("Havener Center", -91.77592959113267, 37.95476631091687, 0);
         bDao.create(b);
 
         b = new Building("IDE", 0, 0, 0);
@@ -84,10 +94,16 @@ public class Helper extends OrmLiteSqliteOpenHelper
         b = new Building("Toomey Hall", 0, 0, 0);
         bDao.create(b);
 
-        b = new Building("Butler-Carlton Hall", 0, 0, 0);
+        b = new Building("Butler-Carlton Hall", -91.77369385505148, 37.95520863546415, 0);
         bDao.create(b);
 
-        b = new Building("Electrical Engineering", 0, 0, 0);
+        b = new Building("Electrical Engineering", -91.77369385505148, 37.95520863546415, 0);
+        bDao.create(b);
+
+        b = new Building("Physics", -91.77318392752757, 37.95486703799107, 0);
+        bDao.create(b);
+
+        b = new Building("McNutt Hall", -91.77544507921532, 37.95566916837905, 0);
         bDao.create(b);
     }
 }

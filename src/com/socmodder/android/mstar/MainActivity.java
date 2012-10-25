@@ -10,6 +10,8 @@ import android.view.*;
 import android.widget.*;
 
 import com.j256.ormlite.android.AndroidConnectionSource;
+import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
+import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.db.SqliteAndroidDatabaseType;
 import com.j256.ormlite.android.*;
 import com.j256.ormlite.db.*;
@@ -22,7 +24,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends Activity implements ArchitectUrlListener, LocationListener
+public class MainActivity extends OrmLiteBaseActivity<Helper> implements ArchitectUrlListener, LocationListener
 {
 	private String key = "BRKlXP3V5iv6RI/wrBX5xEKK8kDFdXVGi29IQOdNyleals3BnO7iLIbhtaFWOnVp1L2v1CM9LiiCUAln" +
             "yRuVQPNpgLijVQB 0tBUhxN+4Zcle8iGv0MRy/+ltsLTd+LecLZ70bd/Eoo2DG0aaqJMXwJuZzHRhOij1HdTB9NHWWQRTYWx0ZWRfX6uL+" +
@@ -106,5 +108,12 @@ public class MainActivity extends Activity implements ArchitectUrlListener, Loca
         JSONArray array = new JSONArray();
         poiBeanList = new ArrayList<PoiBean>();
 
+    }
+
+    private void getDatabaseStuff(){
+        RuntimeExceptionDao<Building, Integer> buildingDao = getHelper().getRuntimeExceptionDao(Building.class);
+        List<Building> bList = buildingDao.queryForAll();
+
+        //TODO: finish getDatabaseStuff()
     }
 }
