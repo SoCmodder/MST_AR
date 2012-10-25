@@ -68,5 +68,26 @@ public class Helper extends OrmLiteSqliteOpenHelper
 
         b = new Building("Engineering Managment", -91.77479519078301, 37.95511551589411, 0);
         bDao.create(b);
+
+        b = new Building("Shrenk Hall", 0, 0, 0);
+        bDao.create(b);
+
+        b = new Building("Havener", 0, 0, 0);
+        bDao.create(b);
+
+        b = new Building("IDE", 0, 0, 0);
+        bDao.create(b);
+
+        b = new Building("Centenial Hall", 0, 0, 0);
+        bDao.create(b);
+
+        b = new Building("Toomey Hall", 0, 0, 0);
+        bDao.create(b);
+
+        b = new Building("Butler-Carlton Hall", 0, 0, 0);
+        bDao.create(b);
+
+        b = new Building("Electrical Engineering", 0, 0, 0);
+        bDao.create(b);
     }
 }
