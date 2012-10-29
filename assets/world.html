@@ -1,10 +1,41 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
         "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+<html id="sfdf">
+    <head>
+        <title>Missouri S&T Augmented Reality Map</title>
+        <!-- CSS Styling goes here -->
 
-</body>
+        <!-- Include the ARchitect library -->
+        <script src="architect://architect.js"></script>
+    </head>
+
+    <body>
+        <script>
+            testMarker = new AR.ImageResource("marker_test.png", {onError: errorLoadingImage});
+
+            //current selected object
+            var selectedObject = null;
+
+            //variable that keeps the jsonData received from the native app
+            var jsonObject;
+
+            //function that is called when the building marker is clicked
+            //it sends the id of the selected building to the native app
+            function generateOnPoiBubbleClickFunc(id){
+                return function(){
+                    document.location = "architectsdk://opendetailpage?id="+id;
+                }
+            }
+
+            //click animation not implemented here...maybe later
+
+
+            //creates a function for assigning to label's and imageDrawable's onClickTrigger
+            function createClickTrigger(id){
+                return function(){
+
+                }
+            }
+        </script>
+    </body>
 </html>
