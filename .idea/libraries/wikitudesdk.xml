@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="wikitudesdk">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../Library/trunk_1_1_1/Android/SDK/wikitudesdk.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/wikitudesdk.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
