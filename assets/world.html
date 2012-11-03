@@ -11,6 +11,7 @@
 
     <body>
         <script>
+            //loading image for marker
             testMarker = new AR.ImageResource("marker_test.png", {onError: errorLoadingImage});
 
             //current selected object
@@ -33,9 +34,91 @@
             //creates a function for assigning to label's and imageDrawable's onClickTrigger
             function createClickTrigger(id){
                 return function(){
+                    document.getElementById("footer").style.display = 'block';
+                    document.getElementById("poiName").innerHTML=jsonObject[id].name;
+                    document.getElementById("poiDesc").innerHTML=jsonObject[id].description.substring(0,25);
+                    document.getElementById("footer").onclick= generateOnPoiBubbleClickFunc(id);
 
+                    //reset the previously selected poi
+                    if(selectedObject != null){
+                        //reset the property animation
+                        selectedObject.animation.stop();
+
+                        selectedObject.arLabel.style.backgroundColor = '#FFFFFF80';
+                        selectedObject.img.scaling = 1.0;
+                        selectedObject.poiObj.renderingOrder = 0;
+                    }
+
+                    //set a new select status for the currently selecte poi
+                    selectedObject = jsonObject[id];
+                    selectedObject.arLabel.style.backgroundColor = '#FFFFFFFF';
+                    selectedObject.poiObj.renderingOrder = 1;
+
+                    //start the assigned animation
+                    selectedObject.animation.start();
+
+                    return true;
+                }
+            }
+
+            //function that is called from the native app via the callJavascript method
+            //receives json-data as string and processes the contained information
+            function newData(jsonData){
+                jsonObject = jsonData;
+                document.getElementById("statusElement").innerHTML='Loading JSON objects';
+
+                for(var i = 0; i < jsonObject.length; i++){
+                    var poidrawables = new Array();
+                    var label = new AR.Label(jsonObject[i].name,1.0, {offsetY : -1.5,
+                        triggers: {
+                        onclick:
+                        createClickTrigger(jsonObject[i].id)},
+                        style: {textColor: '#FFC100',backgroundColor : '#FFFFFF80'}});
+
+                    jsonObject[i].arLabel = label;
+
+                    var poiImage = testMarker;
+
+                    var img = new AR.ImageDrawable(poiImage, 2.0,
+                        {triggers: {
+                        onClick:
+                        createClickTrigger(jsonObject[i].id)}});
+
+                    jsonObject[i].animation = createOnClickAnimation(img);
+                    jsonObject[i].img = img;
+
+                    poidrawables.push(label);
+                    poidrawables.push(img);
+                    geoLoc = AR.GeoLocation(jsonObject[i].Point.latitude, jsonObject[i].Point.longitude,
+                        jsonObject[i].Point.altitude);
+
+                    jsonObject[i].poiObj = new AR.GeoObject(geoLoc, {drawables: (cam: poidrawables}});
+                }
+                document.getElementById("statusElement").innerHTML='JSON objects loaded';
+            }
+
+            AR.context.onScreenClick = function(){
+                document.getElementById("footer").style.display = 'none';
+
+                if(selectedObject != null){
+                    selectedObject.animation.stop();
+
+                    selectedObject.arLabel.style.backgroundColor = '#FFFFFF80';
+                    selectedObject.img.scaling = 1.0;
+                    selectedObject.poiObj.renderingOrder = 0;
+                    selectedObject = null;
                 }
             }
         </script>
+    <!-- Status element at the top of the HUD -->
+    <div id="statusElement" class="status"></div>
+    <br/>
+    <br/>
+    <br/>
+    <div id="footer">
+        <h3><span id="poiName"></span></h3>
+        Description: <span id="poiDesc"></span><br/>
+        <p style="text-align:center;">click for more info...</p>
+    </div>
     </body>
 </html>
