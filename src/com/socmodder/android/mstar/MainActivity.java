@@ -23,16 +23,18 @@ import java.util.List;
 
 public class MainActivity extends OrmLiteBaseActivity<Helper> implements ArchitectUrlListener, LocationListener
 {
-	private String key = "BRKlXP3V5iv6RI/wrBX5xEKK8kDFdXVGi29IQOdNyleals3BnO7iLIbhtaFWOnVp1L2v1CM9LiiCUAln" +
-            "yRuVQPNpgLijVQB 0tBUhxN+4Zcle8iGv0MRy/+ltsLTd+LecLZ70bd/Eoo2DG0aaqJMXwJuZzHRhOij1HdTB9NHWWQRTYWx0ZWRfX6uL+" +
-            " WjpAeMNJsgruSkyYiJ927jL2jy1V4WaltO4j2tzqk00dBslgtIF87dnBCjDI2uMK/RIZS0S9e4wAd8hTF0SacWJOtrj/ESwV8P" +
-            " obCvOGr6yBqVz";
+	private String key = "BRKlXP3V5iv6RI/wrBX5xEKK8kDFdXVGi29IQOdNyleals3BnO7iLIbhtaFWOnVp1L2v1CM9LiiCUAlnyRuVQPNpgLijVQB0tBUhxN+4Zcle8iGv0MRy/+ltsLTd+LecLZ70bd/Eoo2DG0aaqJMXwJuZzHRhOij1HdTB9NHWWQRTYWx0ZWRfX6uL+WjpAeMNJsgruSkyYiJ927jL2jy1V4WaltO4j2tzqk00dBslgtIF87dnBCjDI2uMK/RIZS0S9e4wAd8hTF0SacWJOtrj/ESwV8PobCvOGr6yBqVzxGQsM7dLCf3mqXJl2w2B7s1xdrcyXvT+u/AQzWfB6eWycKAQtEatiz4G6+Z+8sKTGN/jgcCnoLlYSRHJ+H2ADzkeZvisBWxWLaFoNs9ik5ejqxtOrUFZYWatTQ98k3ITgQcBa/GOAlUFoYJPRWDTmlwffiPVQO/Kx4Ayv80dSk9n5Siqe+t6P7B/h/j8muhsbEga+XUNXR2S4ETgcSdjdvF9AZXZoBTvkPJhFFJOwpaiZjZqV5o18qrwtVm0jGDvtWeGu818jyWwd7g1g8Og517b/tpWahsdpKHFpY0skKgnQuHtMk81rQxMMmq5zaA6U5GjQceJdAEJ7mjuPo6NC7u+IIe93l1+XwiyHjIMegUAkQ==";
 
     private ArchitectView architectView;
     private LocationManager locManager;
     private Location loc;
     private List<PoiBean> poiBeanList;
     private String provider;
+
+    private final static float TEST_LATITUDE = 37.952538f;
+    private final static float TEST_LONGITUDE = -91.779587f;
+    private final static float TEST_ALTITUDE = 0;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -85,7 +87,8 @@ public class MainActivity extends OrmLiteBaseActivity<Helper> implements Archite
         super.onResume();
 
         this.architectView.onResume();
-        locManager.requestLocationUpdates(provider, 400, 1, this);
+        this.architectView.setLocation(loc.getLatitude(), loc.getLongitude(), loc.getAltitude(), 1f);
+        //locManager.requestLocationUpdates(provider, 400, 1, this);
     }
 
     @Override
@@ -180,8 +183,8 @@ public class MainActivity extends OrmLiteBaseActivity<Helper> implements Archite
         for(int i=0; i<buildingList.size(); i++){
             PoiBean bean = new PoiBean(
                     ""+i,
-                    "POI #" + i,
-                    "Best POI Bean ever!" + i,
+                    buildingList.get(i).getName(),
+                    "basic Description",
                     1, buildingList.get(i).getLat(),
                     buildingList.get(i).getLon(),
                     buildingList.get(i).getAlt()

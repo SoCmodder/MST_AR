@@ -7,6 +7,8 @@ public class Building
 {
 	@DatabaseField(id = true)
 	private String name;
+    @DatabaseField
+    private String desc;
 	@DatabaseField
 	private double lon;
 	@DatabaseField
@@ -22,8 +24,9 @@ public class Building
 		
 	}
 	
-	public Building(String n, double lon, double lat, double alt){
+	public Building(String n, String d, float lon, float lat, float alt){
 		this.name = n;
+        this.desc = d;
 		this.lon = lon;
 		this. lat = lat;
 		this.alt = alt;
@@ -32,7 +35,11 @@ public class Building
 	public String getName(){
 		return name;
 	}
-	
+
+    public String getDesc(){
+        return desc;
+    }
+
 	public double getLon(){
 		return lon;
     }

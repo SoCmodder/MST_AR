@@ -68,43 +68,45 @@ public class Helper extends OrmLiteSqliteOpenHelper
             e.printStackTrace();
         }
         try{
-            Building b = new Building("Computer Science", -91.77383683047405, 37.95561634965694, 0);
+            String desc = "The computer science building. The most awesome building ever!";
+            Building b = new Building("Computer Science", desc, -91.77383683047405f, 37.95561634965694f, 0);
             bDao.create(b);
 
-            b = new Building("Library", -91.77332205172004, 37.95543497056854, 0);
+            desc = "This is the library BOOOOOOO";
+            b = new Building("Library", desc, -91.77332205172004f, 37.95543497056854f, 0);
             bDao.create(b);
 
-            b = new Building("HSS", -91.77409015632608, 37.9553411304625, 0);
+            b = new Building("HSS", desc, -91.77409015632608f, 37.9553411304625f, 0);
             bDao.create(b);
 
-            b = new Building("Engineering Managment", -91.77479519078301, 37.95511551589411, 0);
+            b = new Building("Engineering Managment", desc, -91.77479519078301f, 37.95511551589411f, 0);
             bDao.create(b);
 
-            b = new Building("Shrenk Hall", 0, 0, 0);
+            b = new Building("Shrenk Hall", desc, 0, 0, 0);
             bDao.create(b);
 
-            b = new Building("Havener Center", -91.77592959113267, 37.95476631091687, 0);
+            b = new Building("Havener Center", desc, -91.77592959113267f, 37.95476631091687f, 0);
             bDao.create(b);
 
-            b = new Building("IDE", 0, 0, 0);
+            b = new Building("IDE", desc, 0, 0, 0);
             bDao.create(b);
 
-            b = new Building("Centenial Hall", 0, 0, 0);
+            b = new Building("Centenial Hall", desc, 0, 0, 0);
             bDao.create(b);
 
-            b = new Building("Toomey Hall", 0, 0, 0);
+            b = new Building("Toomey Hall", desc, 0, 0, 0);
             bDao.create(b);
 
-            b = new Building("Butler-Carlton Hall", -91.77369385505148, 37.95520863546415, 0);
+            b = new Building("Butler-Carlton Hall", desc, -91.77369385505148f, 37.95520863546415f, 0);
             bDao.create(b);
 
-            b = new Building("Electrical Engineering", -91.77369385505148, 37.95520863546415, 0);
+            b = new Building("Electrical Engineering", desc, -91.77369385505148f, 37.95520863546415f, 0);
             bDao.create(b);
 
-            b = new Building("Physics", -91.77318392752757, 37.95486703799107, 0);
+            b = new Building("Physics", desc, -91.77318392752757f, 37.95486703799107f, 0);
             bDao.create(b);
 
-            b = new Building("McNutt Hall", -91.77544507921532, 37.95566916837905, 0);
+            b = new Building("McNutt Hall", desc, -91.77544507921532f, 37.95566916837905f, 0);
             bDao.create(b);
         }catch(SQLException e){
             e.printStackTrace();

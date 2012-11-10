@@ -16,6 +16,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/world.html" afterPath="$PROJECT_DIR$/assets/world.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/socmodder/android/mstar/Building.java" afterPath="$PROJECT_DIR$/src/com/socmodder/android/mstar/Building.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/socmodder/android/mstar/Helper.java" afterPath="$PROJECT_DIR$/src/com/socmodder/android/mstar/Helper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/socmodder/android/mstar/MainActivity.java" afterPath="$PROJECT_DIR$/src/com/socmodder/android/mstar/MainActivity.java" />
     </list>
     <ignored path="MST_AR.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -76,7 +79,7 @@
       <file leaf-file-name="Building.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/socmodder/android/mstar/Building.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="69" selection-start="618" selection-end="618" vertical-scroll-proportion="0.0">
+            <state line="28" column="22" selection-start="606" selection-end="606" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -85,7 +88,7 @@
       <file leaf-file-name="Helper.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/socmodder/android/mstar/Helper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="9" selection-start="1024" selection-end="1024" vertical-scroll-proportion="0.0">
+            <state line="74" column="48" selection-start="2286" selection-end="2286" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -94,7 +97,7 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/socmodder/android/mstar/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="58" selection-start="2078" selection-end="2078" vertical-scroll-proportion="0.0">
+            <state line="29" column="58" selection-start="1627" selection-end="1627" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -118,10 +121,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="world.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="world.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/world.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="86" selection-start="1671" selection-end="1671" vertical-scroll-proportion="1.0889679">
+            <state line="163" column="0" selection-start="4878" selection-end="4878" vertical-scroll-proportion="-49.692307">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="71" selection-start="1231" selection-end="1231" vertical-scroll-proportion="0.65">
               <folding />
             </state>
           </provider>
@@ -142,16 +154,16 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/gen/com/socmodder/android/mstar/PoiBean.java" />
-        <option value="$PROJECT_DIR$/src/com/socmodder/android/mstar/Building.java" />
         <option value="$PROJECT_DIR$/res/layout/main.xml" />
         <option value="$PROJECT_DIR$/src/com/socmodder/android/mstar/PoiBean.java" />
         <option value="$PROJECT_DIR$/res/layout/building_detail.xml" />
         <option value="$PROJECT_DIR$/src/com/socmodder/android/mstar/PoiDetailActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/socmodder/android/mstar/Helper.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/src/com/socmodder/android/mstar/MainActivity.java" />
         <option value="$PROJECT_DIR$/assets/world.html" />
+        <option value="$PROJECT_DIR$/src/com/socmodder/android/mstar/Building.java" />
+        <option value="$PROJECT_DIR$/src/com/socmodder/android/mstar/Helper.java" />
+        <option value="$PROJECT_DIR$/src/com/socmodder/android/mstar/MainActivity.java" />
+        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
       </list>
     </option>
   </component>
@@ -189,6 +201,30 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MST_AR" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MST_AR" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -305,37 +341,13 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MST_AR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MST_AR" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
-    <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
+    <property name="MemberChooser.sorted" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
@@ -391,24 +403,6 @@
         <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-      </method>
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -435,6 +429,24 @@
       <envs />
       <properties />
       <listeners />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
@@ -588,7 +600,11 @@
       <created>1351978852957</created>
       <updated>1351978852957</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="make some changes to Main and javascript">
+      <created>1352142650178</created>
+      <updated>1352142650178</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -612,7 +628,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924107" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -623,13 +639,14 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.171875" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924107" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924107" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2533482" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16629465" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24158204" sideWeight="0.7890625" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2109375" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2109375" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -638,7 +655,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977018" sideWeight="0.83370537" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924107" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -738,24 +754,9 @@
         <state line="32" column="28" selection-start="1443" selection-end="1443" vertical-scroll-proportion="0.33268103" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="80" selection-start="807" selection-end="807" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/socmodder/android/mstar/Building.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="69" selection-start="618" selection-end="618" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/socmodder/android/mstar/Helper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="9" selection-start="1024" selection-end="1024" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/socmodder/android/mstar/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="58" selection-start="2078" selection-end="2078" vertical-scroll-proportion="0.0" />
+    <entry file="file://$PROJECT_DIR$/assets/marker_test.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/socmodder/android/mstar/PoiBean.java">
@@ -770,7 +771,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/world.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="86" selection-start="1671" selection-end="1671" vertical-scroll-proportion="1.0889679">
+        <state line="163" column="0" selection-start="4878" selection-end="4878" vertical-scroll-proportion="-49.692307">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/socmodder/android/mstar/Building.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="22" selection-start="606" selection-end="606" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/socmodder/android/mstar/Helper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="48" selection-start="2286" selection-end="2286" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/socmodder/android/mstar/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="58" selection-start="1627" selection-end="1627" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="71" selection-start="1231" selection-end="1231" vertical-scroll-proportion="0.65">
           <folding />
         </state>
       </provider>
