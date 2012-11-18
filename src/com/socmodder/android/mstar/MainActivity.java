@@ -1,6 +1,7 @@
 package com.socmodder.android.mstar;
 
 import android.content.Context;
+import android.content.Intent;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
@@ -118,6 +119,11 @@ public class MainActivity extends OrmLiteBaseActivity<Helper> implements Archite
         }
     }
 
+    @Override
+    public void onBackPressed(){
+        finish();
+    }
+
     /**
      * called when a url with hose "architectsdk://" is discovered.
      * @param url
@@ -138,11 +144,10 @@ public class MainActivity extends OrmLiteBaseActivity<Helper> implements Archite
         //get the corresponding poi bean for the given id
         PoiBean bean = poiBeanList.get(Integer.parseInt(id));
         //start a new intent for displaying the content of the bean
-        //TODO: make this custom
-        //Intent intent = new Intent(this, PoiDetailActivity.class);
-        //intent.putExtra("POI_NAME", bean.getName());
-        //intent.putExtra("POI_DESC", bean.getDescription());
-        //this.startActivity(intent);
+        Intent intent = new Intent(this, BuildingDetailActivity.class);
+        intent.putExtra("BUILDING_NAME", bean.getName());
+        intent.putExtra("BUILDING_DESC", bean.getDescription());
+        this.startActivity(intent);
         return true;
     }
 
@@ -184,7 +189,7 @@ public class MainActivity extends OrmLiteBaseActivity<Helper> implements Archite
             PoiBean bean = new PoiBean(
                     ""+i,
                     buildingList.get(i).getName(),
-                    "basic Description",
+                    buildingList.get(i).getDesc(),
                     1, buildingList.get(i).getLat(),
                     buildingList.get(i).getLon(),
                     buildingList.get(i).getAlt()

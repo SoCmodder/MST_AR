@@ -12,7 +12,7 @@ import java.sql.SQLException;
 public class Helper extends OrmLiteSqliteOpenHelper
 {
 	private static final String DATABASE_NAME = "AR.sqlite";
-	private static final int DATABASE_VERSION = 1;
+	private static final int DATABASE_VERSION = 3;
 	
 	private Dao<Building, Integer> buildingDao = null;
     private RuntimeExceptionDao<Building, Integer> runtimeDao = null;
@@ -34,10 +34,11 @@ public class Helper extends OrmLiteSqliteOpenHelper
     }
 
     @Override
-	public void onUpgrade(SQLiteDatabase p1, ConnectionSource p2, int p3, int p4)
+	public void onUpgrade(SQLiteDatabase db, ConnectionSource connectionSource1, int p3, int p4)
 	{
         try{
-            TableUtils.dropTable(connectionSource, Building.class, true);
+            TableUtils.dropTable(connectionSource1, Building.class, true);
+            onCreate(db, connectionSource1);
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
@@ -60,6 +61,9 @@ public class Helper extends OrmLiteSqliteOpenHelper
         return buildingDao;
     }
 
+    /**
+     *
+     */
     public void createBuildings(){
         Dao<Building, Integer> bDao = null;
         try {
@@ -69,44 +73,55 @@ public class Helper extends OrmLiteSqliteOpenHelper
         }
         try{
             String desc = "The computer science building. The most awesome building ever!";
-            Building b = new Building("Computer Science", desc, -91.77383683047405f, 37.95561634965694f, 0);
+            Building b = new Building("Computer Science", desc, -91.77383683047405f, 37.95561634965694f, 1200);
             bDao.create(b);
 
-            desc = "This is the library BOOOOOOO";
-            b = new Building("Library", desc, -91.77332205172004f, 37.95543497056854f, 0);
+            desc = "Library information...";
+            b = new Building("Library", desc, -91.77332205172004f, 37.95543497056854f, 1200);
             bDao.create(b);
 
-            b = new Building("HSS", desc, -91.77409015632608f, 37.9553411304625f, 0);
+            desc = "Humanities and Social Sciences";
+            b = new Building("HSS", desc, -91.77409015632608f, 37.9553411304625f, 1200);
             bDao.create(b);
 
-            b = new Building("Engineering Managment", desc, -91.77479519078301f, 37.95511551589411f, 0);
+            desc = "Engineering Management Building...";
+            b = new Building("Engineering Managment", desc, -91.775128f, 37.955475f, 1200);
             bDao.create(b);
 
-            b = new Building("Shrenk Hall", desc, 0, 0, 0);
+            desc = "Chemistry!";
+            b = new Building("Shrenk Hall", desc, -91.774091f, 37.952875f, 1200);
             bDao.create(b);
 
-            b = new Building("Havener Center", desc, -91.77592959113267f, 37.95476631091687f, 0);
+            desc = "The bookstore is located here. You can also come here for food!";
+            b = new Building("Havener Center", desc, -91.77592959113267f, 37.95476631091687f, 1200);
             bDao.create(b);
 
-            b = new Building("IDE", desc, 0, 0, 0);
+            desc = "Inter-Disciplenary Engineering";
+            b = new Building("IDE", desc, -91.771995f, 37.953963f, 1200);
             bDao.create(b);
 
-            b = new Building("Centenial Hall", desc, 0, 0, 0);
+            desc = "There are alot of labs and IST classes here...";
+            b = new Building("Centenial Hall", desc, -91.773116f, 37.953083f, 1200);
             bDao.create(b);
 
-            b = new Building("Toomey Hall", desc, 0, 0, 0);
+            desc = "Aerospace and Mechanical Engineering";
+            b = new Building("Toomey Hall", desc, -91.774025f, 37.954098f, 1200);
             bDao.create(b);
 
-            b = new Building("Butler-Carlton Hall", desc, -91.77369385505148f, 37.95520863546415f, 0);
+            desc = "Civil Engineering";
+            b = new Building("Butler-Carlton Hall", desc, -91.77369385505148f, 37.95520863546415f, 1200);
             bDao.create(b);
 
-            b = new Building("Electrical Engineering", desc, -91.77369385505148f, 37.95520863546415f, 0);
+            desc = "This is the double E building!";
+            b = new Building("Electrical Engineering", desc, -91.77369385505148f, 37.95520863546415f, 1200);
             bDao.create(b);
 
-            b = new Building("Physics", desc, -91.77318392752757f, 37.95486703799107f, 0);
+            desc = "This is where you get to take the most fun physics classes ever!";
+            b = new Building("Physics", desc, -91.77318392752757f, 37.95486703799107f, 1200);
             bDao.create(b);
 
-            b = new Building("McNutt Hall", desc, -91.77544507921532f, 37.95566916837905f, 0);
+            desc = "Mining Engineering is here!";
+            b = new Building("McNutt Hall", desc, -91.775837f, 37.955635f, 1200);
             bDao.create(b);
         }catch(SQLException e){
             e.printStackTrace();

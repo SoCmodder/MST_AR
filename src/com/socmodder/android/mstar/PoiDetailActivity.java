@@ -2,6 +2,7 @@ package com.socmodder.android.mstar;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.TextView;
 
 /**
  * Created with IntelliJ IDEA.
@@ -18,5 +19,8 @@ public class PoiDetailActivity extends Activity {
 
         String name = this.getIntent().getExtras().getString("POI_NAME");
         String desc = this.getIntent().getExtras().getString("POI_DESC");
+
+        ((TextView) this.findViewById(R.id.tvBuildingName)).setText(name);
+        ((TextView) this.findViewById(R.id.tvBuildingDesc)).setText(desc);
     }
 }
