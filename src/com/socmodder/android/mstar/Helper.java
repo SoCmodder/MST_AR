@@ -33,6 +33,7 @@ public class Helper extends OrmLiteSqliteOpenHelper
         }
         //Name, lon, lat, alt
         createBuildings();
+        //createVendingMachines();
     }
 
     @Override
@@ -138,7 +139,9 @@ public class Helper extends OrmLiteSqliteOpenHelper
     }
 
     /**
-     *
+     * Function: createVendingMachines()
+     * Description: Used to create a table of vending machines in the database
+     * that can later be accessed and tied to individual buildings.
      */
     public void createVendingMachines(){
         Dao<VendingMachine, Integer> d = null;
@@ -168,7 +171,7 @@ public class Helper extends OrmLiteSqliteOpenHelper
             d.create(vm);
 
             items.clear();
-            items.add("SUCK A DICK");
+            items.add("");
 
 
         } catch (SQLException e) {

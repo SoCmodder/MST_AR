@@ -1,5 +1,4 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<!-- saved from url=(0061)http://www.wikitude.com/doc/architect_tutorial/tutorial5.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <title>Missouri S&T Augmented Reality Map</title>
@@ -74,53 +73,53 @@
     //sends the id of the selected poi to the native app
     function generateOnPoiBubbleClickFunc(id)
     {
-    return function()
-    {
-        document.location = "architectsdk://opendetailpage?id="+id;
-    }
+        return function()
+        {
+            document.location = "architectsdk://opendetailpage?id="+id;
+        }
     }
 
 
     // creates a property animation
     function createOnClickAnimation(imageDrawable)
     {
-    var anim = new AR.PropertyAnimation( imageDrawable, 'scaling', 1.0, 1.2, 750, new AR.EasingCurve(AR.CONST.EASING_CURVE_TYPE.EASE_OUT_ELASTIC, {amplitude : 2.0}) );
-    return anim;
+        var anim = new AR.PropertyAnimation( imageDrawable, 'scaling', 1.0, 1.2, 750, new AR.EasingCurve(AR.CONST.EASING_CURVE_TYPE.EASE_OUT_ELASTIC, {amplitude : 2.0}) );
+        return anim;
     }
 
 
     // creates a function for assigning to label's and imageDrawable's onClickTrigger
     function createClickTrigger(id)
     {
-    return function()
-    {
-    // hide the bubble
-    document.getElementById("footer").style.display = 'block';
-    document.getElementById("poiName").innerHTML=jsonObject[id].name;
-    document.getElementById("poiDesc").innerHTML=jsonObject[id].description.substring(0,25);
-    document.getElementById("footer").onclick= generateOnPoiBubbleClickFunc(id);
+        return function()
+        {
+            // hide the bubble
+            document.getElementById("footer").style.display = 'block';
+            document.getElementById("poiName").innerHTML=jsonObject[id].name;
+            document.getElementById("poiDesc").innerHTML=jsonObject[id].description.substring(0,25);
+            document.getElementById("footer").onclick= generateOnPoiBubbleClickFunc(id);
 
-    // reset the previous selected poi
-    if(selectedObject != null)
-    {
-    // reset the property animation
-    selectedObject.animation.stop();
+            // reset the previous selected poi
+            if(selectedObject != null)
+            {
+                // reset the property animation
+                selectedObject.animation.stop();
 
-    selectedObject.arLabel.style.backgroundColor = '#FFFFFF80';
-    selectedObject.img.scaling = 1.0;
-    selectedObject.poiObj.renderingOrder = 0;
-    }
+                selectedObject.arLabel.style.backgroundColor = '#FFFFFF80';
+                selectedObject.img.scaling = 1.0;
+                selectedObject.poiObj.renderingOrder = 0;
+            }
 
-    // set a new select status for the current selected poi
-    selectedObject = jsonObject[id];
-    selectedObject.arLabel.style.backgroundColor = '#FFFFFFFF';
-    selectedObject.poiObj.renderingOrder = 1;
+            // set a new select status for the current selected poi
+            selectedObject = jsonObject[id];
+            selectedObject.arLabel.style.backgroundColor = '#FFFFFFFF';
+            selectedObject.poiObj.renderingOrder = 1;
 
-    // start the assigned animation
-    selectedObject.animation.start();
+            // start the assigned animation
+            selectedObject.animation.start();
 
-    return true;
-    }
+            return true;
+        }
     }
 
     //function called from the native app fia callJavascript method
@@ -160,7 +159,7 @@
             jsonObject[i].poiObj = new AR.GeoObject(geoLoc, {drawables: {cam: poidrawables}});
         }
 
-        document.getElementById("statusElement").innerHTML='JSON objects loaded';
+        document.getElementById("statusElement").innerHTML='Buildings loaded';
 
     }
 

@@ -25,6 +25,7 @@
 
         <TextView
                 android:id="@+id/tvBuildingName"
+                android:textColor="#00FF00"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -47,6 +48,7 @@
                 android:id="@+id/tvBuildingDesc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#00FF00"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
     </LinearLayout>

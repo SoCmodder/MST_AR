@@ -1,5 +1,6 @@
 package com.socmodder.android.mstar;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Criteria;
@@ -58,10 +59,14 @@ public class MainActivity extends OrmLiteBaseActivity<Helper> implements Archite
 
         //inform the architect framework about the user's location
         locManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
-        locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+        locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 400, 1, this);
 
-        provider = locManager.getBestProvider(criteria, false);
+        provider = locManager.getBestProvider(criteria, true);
         loc = locManager.getLastKnownLocation(provider);
+        //Setting up Mock location for testing purposes.
+        loc.setLatitude(37.95543497056854f);
+        loc.setLongitude(-91.77332205172004f);
+        loc.setAltitude(1250);
     }
 
     @Override

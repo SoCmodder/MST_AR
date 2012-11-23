@@ -2,6 +2,7 @@ package com.socmodder.android.mstar;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.TextView;
 
 /**
  * Created with IntelliJ IDEA.
@@ -19,5 +20,11 @@ public class BuildingDetailActivity extends Activity {
 
         String bName = this.getIntent().getExtras().getString("BUILDING_NAME");
         String bDesc = this.getIntent().getExtras().getString("BUILDING_DESC");
+
+        TextView name = (TextView)findViewById(R.id.tvBuildingName);
+        TextView desc = (TextView)findViewById(R.id.tvBuildingDesc);
+
+        name.setText(bName);
+        desc.setText(bDesc);
     }
 }
