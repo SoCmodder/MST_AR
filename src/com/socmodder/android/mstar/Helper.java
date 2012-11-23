@@ -28,6 +28,7 @@ public class Helper extends OrmLiteSqliteOpenHelper
 		// TODO: Implement this method
         try {
             TableUtils.createTable(cs, Building.class);
+            TableUtils.createTable(cs, VendingMachine.class);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -41,6 +42,7 @@ public class Helper extends OrmLiteSqliteOpenHelper
 	{
         try{
             TableUtils.dropTable(connectionSource1, Building.class, true);
+            TableUtils.dropTable(connectionSource1, VendingMachine.class, true);
             onCreate(db, connectionSource1);
         }catch (SQLException e){
             throw new RuntimeException(e);
@@ -72,7 +74,8 @@ public class Helper extends OrmLiteSqliteOpenHelper
     }
 
     /**
-     *
+     * Function: createBuildings()
+     * Description: creates the needed buildings and adds them to the database
      */
     public void createBuildings(){
         Dao<Building, Integer> bDao = null;
