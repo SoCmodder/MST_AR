@@ -8,7 +8,7 @@
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Poi Detail Page"
+            android:text="Building Details"
             android:textAppearance="?android:attr/textAppearanceLarge" android:gravity="center"/>
 
     <LinearLayout
@@ -46,6 +46,27 @@
 
         <TextView
                 android:id="@+id/tvBuildingDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#00FF00"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+        <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Has Vending Machines: "
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+                android:id="@+id/tvHasVending"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#00FF00"

@@ -17,8 +17,6 @@ public class Building
 	private double alt;
 	@DatabaseField
 	private int restroomCount;
-	@DatabaseField
-	private String vendingMachines;
 	
 	public Building(){
 		
@@ -54,9 +52,5 @@ public class Building
 
     public int getRestroomCount(){
         return restroomCount;
-    }
-
-    public String getVendingMachines(){
-        return vendingMachines;
     }
 }

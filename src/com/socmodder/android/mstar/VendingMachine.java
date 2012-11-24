@@ -3,8 +3,6 @@ package com.socmodder.android.mstar;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-import java.util.ArrayList;
-
 /**
  * Created with IntelliJ IDEA.
  * User: Mitch Miller
@@ -15,18 +13,18 @@ import java.util.ArrayList;
 public class VendingMachine {
     @DatabaseField(id=true)
     private String name;
-    @DatabaseField
-    private ArrayList<String> items;
+    //@DatabaseField
+    //private ArrayList<String> items;
     @DatabaseField
     private String bName;
 
     public VendingMachine(){
 
-    };
+    }
 
-    public VendingMachine(String name, ArrayList<String> items, String building){
+    public VendingMachine(String name, String building){
         this.name = name;
-        this.items = items;
+        //this.items = items;
         this.bName = building;
     }
 
@@ -34,9 +32,9 @@ public class VendingMachine {
         return this.name;
     }
 
-    public ArrayList<String> getItems(){
+    /*public ArrayList<String> getItems(){
         return this.items;
-    }
+    }*/
 
     public String getbName(){
         return this.bName;
@@ -46,9 +44,9 @@ public class VendingMachine {
         this.name = n;
     }
 
-    public void setItems(ArrayList<String> i){
+    /*public void setItems(ArrayList<String> i){
         this.items = i;
-    }
+    }*/
 
     public void setbName(String b){
         this.bName = b;

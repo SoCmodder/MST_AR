@@ -1,6 +1,5 @@
 package com.socmodder.android.mstar;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Criteria;
@@ -8,6 +7,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.widget.Toast;
 import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 import com.wikitude.architect.ArchitectUrlListener;
@@ -59,14 +59,24 @@ public class MainActivity extends OrmLiteBaseActivity<Helper> implements Archite
 
         //inform the architect framework about the user's location
         locManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+        //Check if GPS is enabled
+        boolean enabled = locManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        if(!enabled){
+            Intent i = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+            startActivity(i);
+        }
+
         locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 400, 1, this);
 
-        provider = locManager.getBestProvider(criteria, true);
+        provider = locManager.getBestProvider(criteria, false);
         loc = locManager.getLastKnownLocation(provider);
+        if(loc != null){
+            onLocationChanged(loc);
+        }
         //Setting up Mock location for testing purposes.
-        loc.setLatitude(37.95543497056854f);
-        loc.setLongitude(-91.77332205172004f);
-        loc.setAltitude(1250);
+        //loc.setLatitude(37.95543497056854f);
+        //loc.setLongitude(-91.77332205172004f);
+        //loc.setAltitude(1250);
     }
 
     @Override
@@ -91,16 +101,15 @@ public class MainActivity extends OrmLiteBaseActivity<Helper> implements Archite
     @Override
     protected void onResume(){
         super.onResume();
-
         this.architectView.onResume();
-        this.architectView.setLocation(loc.getLatitude(), loc.getLongitude(), loc.getAltitude(), 1f);
-        //locManager.requestLocationUpdates(provider, 400, 1, this);
+        locManager.requestLocationUpdates(provider, 400, 1, this);
+        //this.architectView.setLocation(loc.getLatitude(), loc.getLongitude(), loc.getAltitude(), 1f);
     }
 
     @Override
     protected void onPause(){
         super.onPause();
-
+        locManager.removeUpdates(this);
         if(this.architectView != null){
             this.architectView.onPause();
         }
@@ -109,7 +118,7 @@ public class MainActivity extends OrmLiteBaseActivity<Helper> implements Archite
     @Override
     protected void onDestroy(){
         super.onDestroy();
-
+        locManager.removeUpdates(this);
         if(this.architectView != null){
             this.architectView.onDestroy();
         }
@@ -185,7 +194,7 @@ public class MainActivity extends OrmLiteBaseActivity<Helper> implements Archite
         poiBeanList = new ArrayList<PoiBean>();
         List<Building> buildingList = null;
         try {
-            buildingList = getHelper().getDao().queryForAll();
+            buildingList = getHelper().getBuildingDao().queryForAll();
         } catch (SQLException e) {
             e.printStackTrace();
         }

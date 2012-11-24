@@ -3,21 +3,19 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.Dao;
-import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class Helper extends OrmLiteSqliteOpenHelper
 {
 	private static final String DATABASE_NAME = "AR.sqlite";
-	private static final int DATABASE_VERSION = 3;
+	private static final int DATABASE_VERSION = 4;
 	
 	private Dao<Building, Integer> buildingDao = null;
     private Dao<VendingMachine, Integer> vendingMachineDao = null;
-    private RuntimeExceptionDao<Building, Integer> runtimeDao = null;
+    //private RuntimeExceptionDao<Building, Integer> runtimeDao = null;
 
 	public Helper(Context context){
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -34,7 +32,7 @@ public class Helper extends OrmLiteSqliteOpenHelper
         }
         //Name, lon, lat, alt
         createBuildings();
-        //createVendingMachines();
+        createVendingMachines();
     }
 
     @Override
@@ -52,14 +50,13 @@ public class Helper extends OrmLiteSqliteOpenHelper
     @Override
     public void close(){
         super.close();
-        runtimeDao = null;
     }
 
     /**
      * Returns the Database Access Object (DAO) for our Building class. It will create it, or just give the cached
      * value.
      */
-    public Dao<Building, Integer> getDao() throws SQLException{
+    public Dao<Building, Integer> getBuildingDao() throws SQLException{
         if(buildingDao == null){
             buildingDao = getDao(Building.class);
         }
@@ -80,16 +77,18 @@ public class Helper extends OrmLiteSqliteOpenHelper
     public void createBuildings(){
         Dao<Building, Integer> bDao = null;
         try {
-            bDao = getDao();
+            bDao = getBuildingDao();
         } catch (SQLException e) {
             e.printStackTrace();
         }
         try{
-            String desc = "The computer science building. The most awesome building ever!";
+            String desc = "The computer science building. The most awesome building ever! " +
+                    "Only the coolest and most awesome people take classes in this building. " +
+                    "Computer Science is the bomb diggity!";
             Building b = new Building("Computer Science", desc, -91.774447f, 37.955555f, 1250);
             bDao.create(b);
 
-            desc = "Library information...";
+            desc = "Books, books, and more books! Sometimes people sleep here when they're studying, too!";
             b = new Building("Library", desc, -91.77332205172004f, 37.95543497056854f, 1250);
             bDao.create(b);
 
@@ -154,29 +153,24 @@ public class Helper extends OrmLiteSqliteOpenHelper
             e.printStackTrace();
         }
 
-        ArrayList<String> items = new ArrayList<String>();
+        //ArrayList<String> items = new ArrayList<String>();
 
         try {
-            items.add("Chips");
-            items.add("Candy");
-            items.add("Gum");
-            items.add("Crackers");
-            VendingMachine vm = new VendingMachine("McNutt Snack Machine", items, "McNutt Hall");
+            //items.add("Chips");
+            //items.add("Candy");
+            //items.add("Gum");
+            //items.add("Crackers");
+            VendingMachine vm = new VendingMachine("McNutt Snack Machine", "McNutt Hall");
             d.create(vm);
 
-            items.clear();
+            /*items.clear();
             items.add("Mountain Dew");
             items.add("Pepsi");
             items.add("Diet Pepsi");
             items.add("Mountain Dew - CR");
             items.add("Mountain Dew - LW");
             vm = new VendingMachine("McNutt Soda Machine", items, "McNutt Hall");
-            d.create(vm);
-
-            items.clear();
-            items.add("");
-
-
+            d.create(vm);*/
         } catch (SQLException e) {
             e.printStackTrace();
         }
